@@ -64,7 +64,7 @@ export default function AdminBarberPage() {
     fetch('/api/admin/verify', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ barberSlug, adminSecret }),
+      body: JSON.stringify({ barberSlug, adminSecret: adminSecret?.trim?.() || adminSecret }),
     })
       .then((r) => r.json())
       .then((data) => {
@@ -176,6 +176,14 @@ export default function AdminBarberPage() {
       <div className="page-container">
         <h1 className="admin-title">Yetkisiz</h1>
         <p>Bu panele erişim yetkiniz yok.</p>
+        <div className="admin-unauthorized-hint">
+          <p>Kontrol edin:</p>
+          <ul>
+            <li>Supabase SQL Editor&apos;da <strong>supabase/RUN_IN_SUPABASE.sql</strong> dosyasının tamamını çalıştırdınız mı?</li>
+            <li>Admin linki tam olarak: <code>/admin/mehmet-berber/groomio-admin-mehmet-2024</code></li>
+            <li>.env.local içinde <code>NEXT_PUBLIC_SUPABASE_URL</code> ve <code>NEXT_PUBLIC_SUPABASE_ANON_KEY</code> doğru projeye ait mi?</li>
+          </ul>
+        </div>
         <Link href="/">Ana sayfa</Link>
       </div>
     );

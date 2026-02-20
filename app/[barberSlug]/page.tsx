@@ -153,8 +153,15 @@ export default function BookingPage() {
   if (error && !barber) {
     return (
       <div className="booking-page">
-        <p>{error}</p>
-        <Link href="/">Ana sayfa</Link>
+        <p className="booking-done-title">Berber bulunamadı</p>
+        <p className="booking-tagline" style={{ marginTop: 8 }}>
+          Bu randevu sayfası henüz açılmamış veya veritabanında kayıt yok. Supabase SQL Editor&apos;da
+          <code style={{ fontSize: '0.85em', margin: '0 4px' }}>supabase/RUN_IN_SUPABASE.sql</code>
+          dosyasını çalıştırın.
+        </p>
+        <Link href="/" className="booking-btn booking-btn-primary" style={{ marginTop: 20 }}>
+          Ana sayfa
+        </Link>
       </div>
     );
   }

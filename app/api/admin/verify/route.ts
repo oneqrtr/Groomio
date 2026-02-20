@@ -14,11 +14,14 @@ export async function POST(request: NextRequest) {
     .from('barbers')
     .select('id, name')
     .eq('slug', barberSlug)
-    .eq('admin_secret', adminSecret)
+    .eq('admin_secret', adminSecret.trim())
     .single();
 
   if (error || !barber) {
-    return NextResponse.json({ valid: false }, { status: 401 });
+    return NextResponse.json(
+      { valid: false, hint: error?.code === 'PGRST116' ? 'barber_or_secret' : 'error' },
+      { status: 401 }
+    );
   }
 
   return NextResponse.json({ valid: true, barberId: barber.id, barberName: barber.name });
