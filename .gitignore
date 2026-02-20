@@ -1,0 +1,16 @@
+# env - asla commit etmeyin
+.env
+.env.local
+.env.*.local
+
+# Next
+.next
+out
+
+# deps
+node_modules
+
+# debug / IDE
+npm-debug.log*
+.DS_Store
+*.pem
