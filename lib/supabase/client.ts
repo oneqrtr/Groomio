@@ -8,6 +8,7 @@ export const supabase: SupabaseClient = createClient(supabaseUrl, supabaseAnonKe
 export type Appointment = {
   id: string;
   barber_id: string;
+  service_id: string | null;
   start_at: string;
   end_at: string;
   customer_name: string;

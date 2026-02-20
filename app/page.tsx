@@ -4,14 +4,26 @@ export default function LandingPage() {
   return (
     <div className="landing">
       <header className="landing-hero">
+        <div className="landing-logo-wrap">
+          {/* Logonuzu public/logo.png olarak ekleyin */}
+          <img src="/logo.png" alt="Groomio" className="landing-logo" width={80} height={80} />
+        </div>
         <h1>Groomio</h1>
         <p>
           Berberiniz için akıllı randevu yönetimi. Müşteriler kolayca randevu alır,
           siz tek ekrandan günü yönetirsiniz — özellikle mobilde.
         </p>
-        <Link href="/admin/mehmet-berber" className="landing-cta">
-          Berber paneline git
+        <Link href="/mehmet-berber" className="landing-cta">
+          Randevu al (örnek)
         </Link>
+        <a
+          href="https://wa.me/?text=Groomio%20berber%20randevu%20sistemini%20kullanmak%20istiyorum"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="landing-cta landing-cta-secondary"
+        >
+          WhatsApp ile Başla
+        </a>
       </header>
 
       <section className="landing-section" aria-labelledby="ozellikler-baslik">
@@ -83,17 +95,16 @@ export default function LandingPage() {
 
       <section className="landing-cta-section">
         <p style={{ margin: 0, color: '#475569', fontSize: '0.9375rem' }}>
-          Randevularınızı tek yerden yönetin.
+          Müşterileriniz QR veya link ile randevu sayfanıza gider.
         </p>
-        <Link href="/admin/mehmet-berber" className="landing-cta">
-          Berber paneline git
+        <Link href="/mehmet-berber" className="landing-cta">
+          Örnek randevu sayfası
         </Link>
       </section>
 
       <footer className="landing-footer">
         <p style={{ margin: 0 }}>
-          Groomio — Berber randevu yönetimi ·{' '}
-          <Link href="/admin/mehmet-berber">Admin panel</Link>
+          Groomio — Berber randevu yönetimi. Admin panele giriş linki size özel iletilir.
         </p>
       </footer>
     </div>
